@@ -1,4 +1,3 @@
-import { findDOMNode } from 'react-dom';
 import keyCode from 'rc-util/lib/KeyCode';
 
 export function isEventFromHandle(
@@ -6,7 +5,7 @@ export function isEventFromHandle(
   handles: Record<number, React.ReactElement>,
 ) {
   try {
-    return Object.keys(handles).some(key => e.target === findDOMNode(handles[key]));
+    return Object.keys(handles).some(key => e.target === handles[key].handle);
   } catch (error) {
     return false;
   }
